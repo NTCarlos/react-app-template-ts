@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { CatsFacts } from './components/catsFacts/CatsFacts';
 
 function App() {
