@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getCatFacts } from '../../api/catFacts'
+import { factModel } from '../../models/factModel'
 
 /**
  * Cats Facts Component
@@ -7,8 +8,8 @@ import { getCatFacts } from '../../api/catFacts'
  * @author Carlos
  */
 function CatsFacts(): JSX.Element {
-    // state variable to store the fact
-    const [response, setResponse] = useState<string>('')
+    // state variable to store the fact object
+    const [response, setResponse] = useState<factModel | null>(null)
 
     // triggers on component load
     useEffect(() => {
@@ -16,18 +17,19 @@ function CatsFacts(): JSX.Element {
     }, [])
 
     /**
-     * function that will call the 'getCatFacts' async and return a response
+     * function that call the 'getCatFacts' async function and return a response
+     * with a random fact from cats
      */
     async function fetchCatsApi() {
-        const response = await getCatFacts()
-        if (await response) {
-            setResponse(response.fact)
+        const response: factModel = await getCatFacts()
+        if (response) {
+            setResponse(response)
         }
     }
 
     return (
         <>
-            <h5>{response}</h5>
+            <h5>{response ? response.fact : 'Loading...'}</h5>
         </>
     );
 }
