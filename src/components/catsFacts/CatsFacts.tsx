@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { getCatFacts } from '../../api/catFacts'
 import { factModel } from '../../models/factModel'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import './catFact.css';
 
 /**
  * Cats Facts Component
@@ -28,9 +32,13 @@ function CatsFacts(): JSX.Element {
     }
 
     return (
-        <>
-            <h5>{response ? response.fact : 'Loading...'}</h5>
-        </>
+        <Container>
+            <Row>
+                <Col>
+                    <h5 className='header'>{response ? response.fact : 'Loading...'}</h5>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

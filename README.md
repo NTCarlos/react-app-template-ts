@@ -44,3 +44,8 @@ Build the Docker image for the current folder and tag it with `dockerized-react`
 Run the image in detached mode and map port 3000 inside the container with 3000 on current host
 
 `docker run -p 3000:3000 -d dockerized-react`
+
+### `bootstrap`
+
+https://react-bootstrap.github.io/getting-started/introduction/
+
