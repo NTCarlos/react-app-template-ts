@@ -31,7 +31,7 @@ function CatsFacts(): JSX.Element {
         <>
             <h5>{response ? response.fact : 'Loading...'}</h5>
         </>
-    );
+    )
 }
 
-export { CatsFacts };
+export { CatsFacts }
